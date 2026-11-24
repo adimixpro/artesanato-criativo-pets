@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artesanato Criativo Pets</title>
+<meta name="description" content="Crie um acessório único para pets em 4 escolhas e aprenda a fazer laços, gravatas e gargantilhas com as próprias mãos.">
+<meta name="theme-color" content="#e23d7c">
+<link rel="canonical" href="https://artesanatocriativopets.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Artesanato Criativo Pets">
+<meta property="og:url" content="https://artesanatocriativopets.com.br/">
+<meta property="og:title" content="Que acessório você criaria para um pet?">
+<meta property="og:description" content="Monte o seu em menos de 1 minuto. Grátis. Escolha o modelo, a estampa e o detalhe e veja a sua criação ganhar vida.">
+<meta property="og:image" content="https://artesanatocriativopets.com.br/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pets ilustrados usando laços e gravatas, com a pergunta: que acessório você criaria para um pet?">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <div class="home">
+      <img id="logo" alt="">
+      <span class="who"><b>Monte seu acessório</b>Artesanato Criativo Pets</span>
+    </div>
+    <div class="count" id="count">Passo 1 de 4</div>
+  </header>
+
+  <section class="stage" id="stage" aria-hidden="true">
+    <div class="ghost" id="ghost"></div>
+    <div class="pieces"><div class="float"><div class="tilt" id="tilt"></div></div></div>
+    <div class="ground"></div>
+  </section>
+
+  <div class="ask">
+    <h1 id="q">Qual acessório você quer criar?</h1>
+    <p id="sub">Arraste ou toque na seta para ver as opções.</p>
+  </div>
+
+  <div class="railwrap">
+    <div class="rail" id="rail"></div>
+    <button class="nav prev" id="prev" aria-label="Opção anterior"></button>
+    <button class="nav next" id="next" aria-label="Próxima opção"></button>
+  </div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <button class="go" id="go">Escolher</button>
+  <div class="hint" id="hint">Toque em um item da faixa abaixo para voltar e trocar.</div>
+
+  <section class="tray" aria-label="Sua criação">
+    <h2>Sua criação</h2>
+    <div class="slots" id="slots"></div>
+  </section>
+
+  <div class="reveal" id="reveal" role="dialog" aria-label="Resultado">
+    <div class="rays"></div>
+    <div class="flash"></div>
+    <div class="loader" aria-live="polite">
+      <div class="pupbox"><video class="pupv" id="pupv" src="media/loading-pets.mp4" muted loop playsinline preload="none"></video></div>
+      <b>Montando a sua criação…</b>
+      <div class="lbar"><i></i></div>
+    </div>
+    <div class="done">
+      <div class="badge">Você criou</div>
+      <div class="frame" id="frame">
+        <i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><i class="star s5"></i>
+        <div class="bobber">
+          <div class="card3d"><div class="arch"></div><div class="back"><img id="blogo" alt=""></div></div>
+          <div class="pop"><img id="final" alt="Pet usando a combinação escolhida"></div>
+        </div>
+        <div class="wait">Revelando sua criação</div>
+      </div>
+      <h3 id="name"></h3>
+      <div class="made" id="made"></div>
+      <p>Você acabou de provar que tem bom gosto para combinar. O que falta é só o passo a passo, e ele é mais simples do que parece.</p>
+      <button class="cta" id="cta">Quero criar com as minhas mãos</button>
+      <div class="fine">Videoaulas do zero, sem máquina · acesso vitalício</div>
+    </div>
+    <canvas id="confetti"></canvas>
+  </div>
+  <div class="offer" id="offer">
+    <div class="prog" id="prog"></div>
+    <section class="sec glow">
+      <div class="orays"></div>
+      <div class="eyebrow" style="text-transform:none;letter-spacing:0;font-size:13px">Você criou na tela. Agora crie com as mãos.</div>
+      <h2 class="big">Aprenda a criar a sua <em>primeira coleção</em> de acessórios para pets</h2>
+      <p>Laços, gravatas e gargantilhas feitos por você, do zero. Sem máquina de costura, sem experiência e com materiais simples.</p>
+      <div class="vframe"><i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><i class="star s5"></i><video playsinline muted loop preload="none" data-poster="media/poster.webp" src="media/pets.mp4"></video></div>
+      <div class="cap">Acessórios reais, feitos com as técnicas das aulas</div>
+      <button class="buy">Quero criar a minha coleção</button>
+      <div class="under">Acesso imediato · 7 dias de garantia</div>
+    </section>
+
+    <section class="sec think">
+      <h2>Você se identifica com algum desses <em>pensamentos?</em></h2>
+      <div class="thinkbox">
+        <div class="bubs top">
+          <div class="bub">Adoro coisas manuais, mas tenho medo de ser <b>muito difícil.</b></div>
+          <div class="bub">Acho os acessórios lindos, mas não sei se consigo fazer <b>sem máquina.</b></div>
+        </div>
+        <img src="media/think-pet.webp" alt="Cachorro de pelo longo com laços e flores vermelhas no penteado" loading="lazy" decoding="async">
+        <div class="bubs bot">
+          <div class="bub">Tenho medo de comprar os materiais errados e <b>jogar dinheiro fora.</b></div>
+          <div class="bub">Queria um momento só meu, <b>criando algo bonito</b> com as mãos.</div>
+        </div>
+      </div>
+      <p>Se algum deles é seu, você está no lugar certo.</p>
+    </section>
+
+    <section class="sec glow scrub" id="scrub">
+      <div class="orays" style="top:50%"></div>
+      <p class="say" id="say">Parece difícil até alguém fazer na sua frente.</p>
+    </section>
+
+    <section class="sec tint models">
+      <h2>Os modelos que você vai <em>aprender a criar</em></h2>
+      <p class="soft">Cada um em videoaula passo a passo, do corte ao acabamento.</p>
+      <h3 class="grp">Laços</h3>
+      <div class="rail2">
+        <div class="tcard"><img src="media/m-laco-eva.webp" alt="Laço dourado de EVA com glitter" loading="lazy" decoding="async"><b>Laço Clássico de EVA</b></div>
+        <div class="tcard"><img src="media/m-laco-pompom.webp" alt="Laços com pompons coloridos" loading="lazy" decoding="async"><b>Laços Pom Pom</b></div>
+        <div class="tcard"><img src="media/m-laco-flor-eva.webp" alt="Laço com flor de EVA" loading="lazy" decoding="async"><b>Laços Primavera</b></div>
+        <div class="tcard"><img src="media/m-laco-lonita.webp" alt="Laço preto com estampa dourada" loading="lazy" decoding="async"><b>Laço de Lonita</b></div>
+      </div>
+      <h3 class="grp">Gravatas</h3>
+      <div class="rail2">
+        <div class="tcard"><img src="media/m-grav-borboleta.webp" alt="Gravatas borboleta verdes" loading="lazy" decoding="async"><b>Gravata Borboleta</b></div>
+        <div class="tcard"><img src="media/m-grav-gola.webp" alt="Gravata gola de EVA com glitter" loading="lazy" decoding="async"><b>Gravata Gola</b></div>
+        <div class="tcard"><img src="media/m-grav-smoking.webp" alt="Gravatas smoking de EVA com glitter" loading="lazy" decoding="async"><b>Gravata Smoking</b></div>
+      </div>
+      <h3 class="grp">Gargantilhas</h3>
+      <div class="rail2">
+        <div class="tcard"><img src="media/m-garg-suprema.webp" alt="Gargantilha com flor de cetim pink" loading="lazy" decoding="async"><b>Gargantilha Suprema</b></div>
+        <div class="tcard"><img src="media/m-garg-renda.webp" alt="Gargantilha com flor de renda azul" loading="lazy" decoding="async"><b>Gargantilha de Renda</b></div>
+        <div class="tcard"><img src="media/m-garg-ponta.webp" alt="Gargantilha com laço de fita e pontas" loading="lazy" decoding="async"><b>Gargantilha Laço de Ponta</b></div>
+      </div>
+      <div class="swipe">Arraste cada fileira para ver todos</div>
+      <button class="buy">Quero criar a minha coleção</button>
+    </section>
+
+    <section class="sec">
+      <h2>Veja como é uma aula <em>por dentro</em></h2>
+      <p class="soft">Câmera bem perto das mãos e um passo de cada vez. Você vê, pausa, faz junto e repete quando quiser.</p>
+      <div class="vframe sq"><video playsinline muted loop preload="none" data-poster="media/aulas-poster.webp" src="media/aulas.mp4"></video></div>
+      <div class="cap">Trechos reais das videoaulas</div>
+    </section>
+
+    <section class="sec tint">
+      <h2>Uma coleção feita por você, <em>do seu jeito</em></h2>
+      <div class="uses">
+        <div><b>Para o seu pet</b>Um acessório novo para cada passeio, festa ou foto, com as cores que você escolher.</div>
+        <div><b>Para presentear</b>Um mimo feito à mão para quem também ama pets vale mais do que qualquer presente comprado.</div>
+        <div><b>Para ter um momento seu</b>Mãos ocupadas, cabeça leve e, no final, uma peça pronta que foi você quem fez.</div>
+      </div>
+    </section>
+
+    <section class="sec glow" style="text-align:left;align-items:stretch">
+      <h2>Como você vai aprender, em 3 passos</h2>
+      <ol class="steps">
+        <li><div><b>Prepare</b>O guia e a lista de compras mostram o que você precisa e onde encontrar.</div><img src="media/s-1.webp" alt="Lista de compras com itens marcados" loading="lazy" decoding="async"></li>
+        <li><div><b>Acompanhe</b>Abra a aula, veja cada movimento e faça junto, no seu ritmo.</div><img src="media/s-2.webp" alt="Aula tocando no celular" loading="lazy" decoding="async"></li>
+        <li><div><b>Crie</b>Termine uma peça e passe para a próxima, até montar a sua coleção.</div><img src="media/s-3.webp" alt="Três acessórios prontos" loading="lazy" decoding="async"></li>
+      </ol>
+    </section>
+
+    <section class="sec tint">
+      <h2>Tudo o que você recebe</h2>
+      <ul class="gets box">
+        <li><div><b>Videoaulas passo a passo</b>Confeccionando laços, gravatas e gargantilhas para pets.</div></li>
+        <li><div><b>Guia de Primeiros Passos</b>Para conhecer os materiais e começar com segurança.</div></li>
+        <li><div><b>Lista de compras pronta</b>Tudo o que você precisa, para não gastar com o que não vai usar.</div></li>
+        <li><div><b>Moldes em PDF</b>Prontos para imprimir, para as gravatas que usam molde.</div></li>
+        <li><div><b>Novas aulas em datas especiais</b>Ao longo do ano, acessórios temáticos entram na sua área de membros, sem custo extra.</div></li>
+      </ul>
+    </section>
+
+    <section class="sec glow">
+      <div class="orays" style="top:230px"></div>
+      <div class="eyebrow">Comece hoje</div>
+      <canvas class="fx" id="fx"></canvas>
+      <div class="pricewrap"><div class="price" id="price"><i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><i class="star s5"></i>
+        <small>Acesso completo por</small>
+        <strong>R$ 47</strong>
+        <small>à vista no Pix, ou parcelado no cartão</small>
+        <small>Pagamento único · Acesso imediato e vitalício</small>
+      </div></div>
+      <button class="buy">Quero meu acesso por R$ 47</button>
+    </section>
+
+    <section class="sec">
+      <div class="seal"><img src="img/selo-garantia.webp" alt="Selo de 7 dias de garantia" loading="lazy" decoding="async" width="400" height="400"><h2>Faça a sua primeira peça. Se não gostar, o dinheiro volta.</h2></div>
+      <p>Entre, assista às aulas e faça a sua primeira peça. Se não gostar do resultado ou achar que não é para você, peça o reembolso em até 7 dias e receba todo o valor de volta.</p>
+    </section>
+
+    <section class="sec tint">
+      <h2>Perguntas frequentes</h2>
+      <div>
+        <details><summary>Preciso ter experiência?</summary><p>Não. As aulas começam do zero e mostram cada passo de perto.</p></details>
+        <details><summary>Preciso de máquina de costura?</summary><p>Não. Nenhuma aula usa máquina.</p></details>
+        <details><summary>Quais materiais vou usar?</summary><p>Fitas de cetim e gorgurão, EVA com glitter, pompons, renda, apliques como meia pérola e strass, tesoura, cola quente, cola para EVA, fita métrica e isqueiro. A lista de compras traz tudo organizado.</p></details>
+        <details><summary>Onde compro os materiais?</summary><p>Em armarinhos, lojas de artesanato e lojas online.</p></details>
+        <details><summary>Os acessórios servem no meu pet?</summary><p>Servem em cães pequenos, médios e grandes, conforme o modelo, e também em gatos.</p></details>
+        <details><summary>Por quanto tempo tenho acesso?</summary><p>Para sempre. O acesso é vitalício: você assiste quando quiser e quantas vezes precisar.</p></details>
+        <details><summary>Como recebo o acesso?</summary><p>Por e-mail, logo após a confirmação do pagamento.</p></details>
+        <details><summary>Posso assistir pelo celular?</summary><p>Sim. As aulas funcionam no celular, no tablet e no computador.</p></details>
+        <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias para pedir o reembolso integral.</p></details>
+      </div>
+    </section>
+
+    <section class="sec glow">
+      <div class="orays" style="top:120px"></div>
+      <img class="endphoto" src="media/final-pet.webp" alt="Golden retriever na grama usando uma gargantilha de flor de cetim rosa" loading="lazy" decoding="async">
+      <h2>Imagine o seu pet com um acessório <em>feito por você</em></h2>
+      <p>O laço, a gravata ou a gargantilha que você mesma cortou, colou e enfeitou. É mais simples do que parece, e as aulas mostram cada passo.</p>
+      <button class="buy">Quero criar a minha coleção</button>
+    </section>
+
+    <footer class="foot">
+      <div class="fbrand"><img src="img/logo.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><b>Artesanato Criativo Pets</b></div>
+      <nav class="flinks"><a href="termos.html">Termos de uso</a><span>·</span><a href="privacidade.html">Política de privacidade</a></nav>
+      <p>Contato: <a href="mailto:artesanatocriativopets@gmail.com">artesanatocriativopets@gmail.com</a></p>
+      <p class="fmeta">Pagamento processado com segurança pela Cakto. Este site não faz parte do Facebook nem da Meta Platforms, Inc., e não é endossado por eles.</p>
+      <p class="fmeta">© 2026 Artesanato Criativo Pets. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="toast" id="toast">O checkout ainda está sendo configurado.</div>
+    <div class="bar hide" id="bar"><div>Acesso vitalício<b>R$ 47</b></div><button class="buy">Quero meu acesso</button></div>
+  </div>
+
+  <div class="intro" id="intro">
+    <div class="brand"><img id="logo2" alt=""><span>Artesanato Criativo Pets</span></div>
+    <div class="hero" id="hero" aria-hidden="true">
+      <div class="trio" id="trio"></div>
+    </div>
+    <div class="pitch">
+      <h1>Que acessório <em>você criaria</em> para um pet?</h1>
+      <p>Escolha o modelo, a estampa e o detalhe. No final, veja a sua criação ganhar vida.</p>
+      <button class="start" id="start">Criar o meu agora</button>
+      <small>Grátis · 4 escolhas · menos de 1 minuto</small>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
